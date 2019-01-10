@@ -50,18 +50,23 @@ const dealWithNode = (node) => {
 
 const props2schema = (props) => {
     let ret = {};
+    let required = [];
 
     let keys = Object.keys(props);
 
     keys.forEach(el => {
         ret[el] = dealWithNode(props[el])
+        if (props[el] && props[el]["required"] && props[el]["required"] === true) {
+            required.push(el);
+        }
     })
 
     return {
         "type": "object",
         properties: {
             ...ret
-        }
+        },
+        required
     };
 }
 
