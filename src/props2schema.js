@@ -59,6 +59,9 @@ const props2schema = (props) => {
         if (props[el] && props[el]["required"] && props[el]["required"] === true) {
             required.push(el);
         }
+        if (props[el] && props[el]["default"] !== undefined) {
+            ret[el]["default"] = props[el]["default"];
+        }
     })
 
     return {
