@@ -1,1 +1,1 @@
-module.exports = require('./src/props2schema');
+module.exports = require('./dist/props2schema');
